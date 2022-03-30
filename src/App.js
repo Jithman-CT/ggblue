@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import UtilityContent from './components/UtilityContent/UtilityContent'
+import Navbar from './components/Navbar/Navbar'
+
+// import file
+import NewArrivals from './components/NewArrivals/NewArrivals';
+import Golf from './components/GolfApparel/GolfApparel';
+import Tennis from './components/TennisApparel/TennisApparel';
+import Ice from './components/ICE/Ice';
+import Sale from './components/Sale/Sale';
+
+const App = () => {
+    return (
+        <div className="App">
+            <header>
+                <UtilityContent />
+                <Navbar />
+            </header>
+            <Routes>
+                <Route path="/" element={<NewArrivals />} />
+                <Route path="/golf-apparel" element={<Golf />}>
+                </Route>
+                <Route path="/tennis-apparel" element={<Tennis />}></Route>
+                <Route path="/ice" element={<Ice />} />
+                <Route path="/sale" element={<Sale />} />
+            </Routes>
+
+
+        </div>
+    )
 }
 
-export default App;
+export default App
