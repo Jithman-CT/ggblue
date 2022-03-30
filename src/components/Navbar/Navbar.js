@@ -22,9 +22,9 @@ const Navbar = () => {
         <div className='container'>
             <div className='Nav-container'>
                 <div className='Nav-left-con'>
-                    <div className="nav-hamburger" onClick={handleClick}>
+                    <h1 className="nav-hamburger" onClick={handleClick}>
                         {click ? <GiCancel /> : <GiHamburgerMenu />}
-                    </div>
+                    </h1>
                     <div className='Brandlogo' onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
                         <img src={isHover ? BrandLogoHover : BrandLogo} alt="Brand Logo"
                             width={161.5} height={40.75} />
