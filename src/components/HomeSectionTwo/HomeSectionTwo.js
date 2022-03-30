@@ -3,13 +3,12 @@ import { client } from "../../client";
 
 const HomeSectionTwo = () => {
 
-
+    const [titleAndDesc, setTitleAndDesc] = useState({})
     const [sectionTwoData, getSectionTwoData] = useState([]);
 
     const cleanUpFetchData = useCallback(async (rawData) => {
         const cleanFetchData = await rawData.map((data) => {
             const { fields, sys } = data;
-            console.log(data);
 
             const { id } = sys;
             const catergoryName = fields.catergoryName;
@@ -22,7 +21,6 @@ const HomeSectionTwo = () => {
     }, [])
 
     const fetchSectionTwoData = useCallback(async () => {
-
         try {
             const response = await client.getEntries({
                 content_type: 'shopCategoryCopy'
@@ -35,9 +33,30 @@ const HomeSectionTwo = () => {
         }
     }, [cleanUpFetchData])
 
+    const fetchSectionTwoTitleAndDesc = useCallback(async () => {
+        try {
+            const response = await client.getEntries({
+                content_type: 'homeSectionTwoHeading'
+            })
+            const data = response.items[0];
+            const { fields, sys } = data;
+            const title = fields.title;
+            const description = fields.description;
+            setTitleAndDesc({ title: title, description: description })
+
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }, [])
+
     useEffect(() => {
         fetchSectionTwoData();
-    }, [fetchSectionTwoData])
+    }, [fetchSectionTwoData]);
+
+    useEffect(() => {
+        fetchSectionTwoTitleAndDesc();
+    }, [fetchSectionTwoTitleAndDesc]);
 
     const remainder = (num) => {
         return num % 2
@@ -47,15 +66,22 @@ const HomeSectionTwo = () => {
     return (
         <section className='Home-section-two'>
             <div className='container'>
+                <div className='section-two-heading'>
+                    <h2>{titleAndDesc.title}</h2>
+                    <p>{titleAndDesc.description}</p>
+                </div>
                 <div className='section-two-main-container'>
-                    {console.log(sectionTwoData)}
+
                     {sectionTwoData.map((item, i) => {
                         return (
                             <div className={`flex-${i % 2 === 0 ? 'left-container' : 'right-container'}`} key={item.id}>
-                                <img src={item.catergoryImage} alt="" loading='lazy' width={752} height={720} />
+                                <img src={item.catergoryImage} alt="" loading='lazy' width={452} height={500} />
 
-                                <h3>{item.catergoryName}</h3>
-                                <a href>Shop Now</a>
+                                <div className='category-details'>
+                                    <h3>{item.catergoryName}</h3>
+                                    <button className='btn-shop-now'>Shop Now</button>
+                                </div>
+
                             </div>
                         )
                     })}
