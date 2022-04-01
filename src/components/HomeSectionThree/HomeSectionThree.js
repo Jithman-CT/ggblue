@@ -1,18 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { client } from '../../client';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation } from 'swiper';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 import Loader from '../Loader/Loader';
 import CarouselSlide from './CarouselSlide';
+
 
 // import swiper style
 import 'swiper/css'
 import 'swiper/css/bundle'
+import "swiper/css/pagination"
 
 
 
 
-SwiperCore.use([Navigation])
+SwiperCore.use([Navigation, Pagination])
 
 const HomeSectionThree = () => {
 
@@ -71,20 +73,21 @@ const HomeSectionThree = () => {
                 <div className='carousel swiper-container'>
                     <Swiper
                         navigation={true}
+                        pagination={true}
                         loop={true}
-                        slidesPerView={1}
+                        slidesPerView={1.5}
                         spaceBetween={10}
                         breakpoints={{
                             // when window width is >= 640px
                             320: {
 
-                                slidesPerView: 1.5,
+                                slidesPerView: 1.6,
                             },
                             400: {
                                 slidesPerView: 2,
                             },
                             500: {
-                                slidesPerView: 2.5,
+                                slidesPerView: 2.25,
                             },
                             600: {
                                 slidesPerView: 3,

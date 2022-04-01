@@ -75,7 +75,7 @@ const HomeSectionTwo = () => {
                     {sectionTwoData.map((item, i) => {
                         return (
                             <div className={`flex-${i % 2 === 0 ? 'left-container' : 'right-container'}`} key={item.id}>
-                                <img src={item.catergoryImage} alt="" loading='lazy' width={452} height={500} />
+                                <img src={item.catergoryImage} alt="" loading='lazy' width={934} height={934} />
 
                                 <div className='category-details'>
                                     <h3>{item.catergoryName}</h3>

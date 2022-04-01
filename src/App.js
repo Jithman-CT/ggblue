@@ -15,6 +15,7 @@ import Golf from './components/GolfApparel/GolfApparel';
 import Tennis from './components/TennisApparel/TennisApparel';
 import Ice from './components/ICE/Ice';
 import Sale from './components/Sale/Sale';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
     return (
@@ -32,7 +33,9 @@ const App = () => {
                 <Route path="/sale" element={<Sale />} />
             </Routes>
 
-
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }
