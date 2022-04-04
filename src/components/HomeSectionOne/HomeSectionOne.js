@@ -62,9 +62,11 @@ const HomeSectionOne = () => {
     return (
         <div className='Banner-section'>
             <div className='banner-left-con'>
-                {/* desktop image */}
-                <img className="tablet-up" rel="preload" as="image"
-                    srcSet={`
+                <img className="tablet-up" width={467} height={467} loading="lazy" alt="" src={`${bigBanner}`} />
+                <img className="mobile" width={467} height={467} loading="lazy" alt="" src={`${bigBanner}`} />
+
+                {/* <img className="tablet-up" rel="preload" as="image"
+                srcSet={`
                         ${bigBanner}&w=320 320w, 
                      
                         ${bigBanner}&w=750 1x, 
@@ -72,16 +74,15 @@ const HomeSectionOne = () => {
                         ${bigBanner}&w=1500 3x , 
                         ${bigBanner}&w=2164 4x
                     `}
-                    sizes=
-                    "(min-width: 1600px) 750px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                    src={`${bigBanner}&w=750`}
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="600"
+                sizes=
+                "(min-width: 1600px) 750px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                src={`${bigBanner}&w=750`}
+                alt=""
+                loading="lazy"
+                width="1000"
+                height="600"
                 />
 
-                {/* tab  image */}
                 <img className="mobile" rel="preload" as="image"
                     srcSet={`
                         ${bigBanner}&w=165 165w, 
@@ -98,11 +99,12 @@ const HomeSectionOne = () => {
                     loading="lazy"
                     width="904"
                     height="1080"
-                />
+                /> */}
             </div>
             <div className='banner-right-con'>
                 <div className='banner-right-wrapper'>
-                    <img rel="preload" as="image"
+                    <img loading='lazy' alt="" width={476} height={476} src={`${smallBanner.image2}`} />
+                    {/* <img rel="preload" as="image"
                         srcSet={`
                             ${smallBanner.image2}&w=320 320w, 
                             ${smallBanner.image2}&w=375 375w
@@ -114,7 +116,7 @@ const HomeSectionOne = () => {
                         alt=""
                         width="375"
                         height="422"
-                    />
+                    /> */}
                     <p className='title'>{smallBanner.catergoryName}</p>
                     <p className='desc'>{smallBanner.catergoryPara}</p>
 
